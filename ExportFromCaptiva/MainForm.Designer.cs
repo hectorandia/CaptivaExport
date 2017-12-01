@@ -45,9 +45,9 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.outputResultInstanceTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.InputResultInstanceTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.openFileButton = new System.Windows.Forms.Button();
             this.openFileTextBox = new System.Windows.Forms.TextBox();
@@ -127,9 +127,9 @@
             this.mainPanel.Controls.Add(this.checkBox2);
             this.mainPanel.Controls.Add(this.checkBox1);
             this.mainPanel.Controls.Add(this.label4);
-            this.mainPanel.Controls.Add(this.textBox3);
+            this.mainPanel.Controls.Add(this.outputResultInstanceTextBox);
             this.mainPanel.Controls.Add(this.label3);
-            this.mainPanel.Controls.Add(this.textBox2);
+            this.mainPanel.Controls.Add(this.InputResultInstanceTextBox);
             this.mainPanel.Controls.Add(this.label2);
             this.mainPanel.Controls.Add(this.openFileButton);
             this.mainPanel.Controls.Add(this.openFileTextBox);
@@ -218,10 +218,13 @@
             // 
             // saveFileTextBox
             // 
+            this.saveFileTextBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveFileTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.saveFileTextBox.Location = new System.Drawing.Point(142, 244);
             this.saveFileTextBox.Name = "saveFileTextBox";
             this.saveFileTextBox.Size = new System.Drawing.Size(323, 20);
             this.saveFileTextBox.TabIndex = 12;
+            this.saveFileTextBox.TextChanged += new System.EventHandler(this.saveFileTextBox_TextChanged);
             // 
             // label5
             // 
@@ -269,12 +272,16 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Image:";
             // 
-            // textBox3
+            // outputResultInstanceTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(192, 96);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(157, 20);
-            this.textBox3.TabIndex = 7;
+            this.outputResultInstanceTextBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outputResultInstanceTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.outputResultInstanceTextBox.Location = new System.Drawing.Point(192, 96);
+            this.outputResultInstanceTextBox.Name = "outputResultInstanceTextBox";
+            this.outputResultInstanceTextBox.Size = new System.Drawing.Size(157, 20);
+            this.outputResultInstanceTextBox.TabIndex = 7;
+            this.outputResultInstanceTextBox.TextChanged += new System.EventHandler(this.outputResultInstanceTextBox_TextChanged);
+            //this.outputResultInstanceTextBox.Leave += new System.EventHandler(this.outputResultInstanceTextBox_Leave);
             // 
             // label3
             // 
@@ -287,12 +294,16 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Output Result from Instance:";
             // 
-            // textBox2
+            // InputResultInstanceTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(192, 65);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(157, 20);
-            this.textBox2.TabIndex = 5;
+            this.InputResultInstanceTextBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InputResultInstanceTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.InputResultInstanceTextBox.Location = new System.Drawing.Point(192, 65);
+            this.InputResultInstanceTextBox.Name = "InputResultInstanceTextBox";
+            this.InputResultInstanceTextBox.Size = new System.Drawing.Size(157, 20);
+            this.InputResultInstanceTextBox.TabIndex = 5;
+            this.InputResultInstanceTextBox.TextChanged += new System.EventHandler(this.InputResultInstanceTextBox_TextChanged);
+            //this.InputResultInstanceTextBox.Leave += new System.EventHandler(this.InputResultInstanceTextBox_Leave);
             // 
             // label2
             // 
@@ -317,10 +328,13 @@
             // 
             // openFileTextBox
             // 
+            this.openFileTextBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openFileTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.openFileTextBox.Location = new System.Drawing.Point(104, 185);
             this.openFileTextBox.Name = "openFileTextBox";
             this.openFileTextBox.Size = new System.Drawing.Size(361, 20);
             this.openFileTextBox.TabIndex = 2;
+            this.openFileTextBox.TextChanged += new System.EventHandler(this.openFileTextBox_TextChanged);
             // 
             // label1
             // 
@@ -428,9 +442,9 @@
         private System.Windows.Forms.TextBox openFileTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox InputResultInstanceTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox outputResultInstanceTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox checkBox2;

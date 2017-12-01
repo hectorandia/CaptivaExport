@@ -9,12 +9,12 @@ namespace ExportHelper.FileReader
 {
     public class CSVReader
     {
-        public List<string> SourceFile { get; set; }
+        private List<string> sourceFile;
         private static CSVReader _instance = null;
 
         protected  CSVReader()
         {
-            SourceFile = new List<string>();
+            sourceFile = new List<string>();
         }
 
         public static CSVReader Instance
@@ -27,7 +27,7 @@ namespace ExportHelper.FileReader
             }
         }
 
-        public List<string> ReadCSVFile(string path)
+        public List<string> SourceFile(string path)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace ExportHelper.FileReader
                     {
                         var line = reader.ReadLine();
                         var values = line.Split(';');
-                        SourceFile.Add(values[0]);
+                        sourceFile.Add(values[0]);
                     }
                 }
             }
@@ -46,7 +46,7 @@ namespace ExportHelper.FileReader
                 MessageBox.Show(null,ex.Message,null,MessageBoxButtons.OK);
             }
             
-            return SourceFile;
+            return sourceFile;
         }
     }
 }

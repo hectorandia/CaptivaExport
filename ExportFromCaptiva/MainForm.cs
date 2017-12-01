@@ -19,7 +19,6 @@ namespace ExportFromCaptiva
         private int movY;
         private int mm = 0;
         private LogOnForm logOn;
-        private string csvFilePath;
 
         public MainForm()
         {
@@ -111,13 +110,12 @@ namespace ExportFromCaptiva
         #region Buttons
         private void openFileButton_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "CSV (*.csv)| *.csv"; 
+            openFileDialog1.Filter = "CSV (*.csv)| *.csv";
             DialogResult result = openFileDialog1.ShowDialog();
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
-                csvFilePath = Path.GetDirectoryName(result); 
+                openFileTextBox.Text = openFileDialog1.InitialDirectory + openFileDialog1.FileName;
             }
-
         }
 
         private void saveFileButton_Click(object sender, EventArgs e)
@@ -125,9 +123,8 @@ namespace ExportFromCaptiva
             DialogResult result = folderBrowserDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-                textBox2.Text = folderBrowserDialog1.SelectedPath;
+                saveFileTextBox.Text = folderBrowserDialog1.SelectedPath;
             }
-
         }
 
         private void startButton_Click_1(object sender, EventArgs e)
@@ -149,7 +146,41 @@ namespace ExportFromCaptiva
 
         private void stopButton_Click(object sender, EventArgs e)
         {
+            
+        }
+        #endregion
 
+        #region Validate Form
+        public void ValidateForm()
+        {
+            startButton.Enabled = true;
+
+            if(String.IsNullOrEmpty(InputResultInstanceTextBox.Text) && String.IsNullOrEmpty(outputResultInstanceTextBox.Text)
+                || (String.IsNullOrEmpty(openFileTextBox.Text) || String.IsNullOrEmpty(saveFileTextBox.Text)))
+            {
+                startButton.Enabled = false;
+            }
+
+        }
+
+        private void InputResultInstanceTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ValidateForm();
+        }
+
+        private void outputResultInstanceTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ValidateForm();
+        }
+
+        private void openFileTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ValidateForm();
+        }
+
+        private void saveFileTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ValidateForm();
         }
         #endregion
     }
